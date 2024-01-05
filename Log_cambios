@@ -1,0 +1,21 @@
+Se ha tomado como base la función de ejemplo de PettingZoo basada en Knights-Archers-Zombies para Stable-Baselines3. La parte de entrenamiento se ha modificado para correr con IceHockey
+
+---
+
+Se ha añadido la clase Sb3ShimWrapper, a la que se llama antes de hacer el modelo PPO, para evitar problemas con el primer reset.
+
+---
+
+Se ha modificado el script ~/pettingzoo/utils/env.py del paquete PettingZoo, en concreto la función num_agents. Debido a los diversos wrappers aplicados, no se estaba obteniendo el número de agentes correctamente (probablemente sea una chapuza, pero funciona).
+
+
+DE:
+def num_agents(self) -> int:
+	return len(self.agents)
+
+A:
+def num_agents(self) -> int:
+        try:
+            return len(self.agents)
+        except:
+            return len(self.possible_agents)
