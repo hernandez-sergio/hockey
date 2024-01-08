@@ -2,7 +2,8 @@ Se ha tomado como base la función de ejemplo de PettingZoo basada en Knights-Ar
 
 ---
 
-Se ha añadido la clase Sb3ShimWrapper, a la que se llama antes de hacer el modelo PPO, para evitar problemas con el primer reset.
+Se ha añadido la clase Sb3ShimWrapper, a la que se llama antes de hacer el modelo PPO, para evitar problemas con el primer reset. A este Wrapper se le ha añadido la función rewards, 
+para modificar las recompensas.
 
 ---
 
